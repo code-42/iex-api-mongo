@@ -24,6 +24,9 @@
 /nbdist/
 /.nb-gradle/
 
+test-output
+resources
+
 yahoo.properties
 hibernate.cfg.xml
 
