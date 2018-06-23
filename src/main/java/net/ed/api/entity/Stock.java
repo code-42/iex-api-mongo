@@ -40,7 +40,15 @@ public class Stock {
 	
 	// constructor
 	public Stock(Date market_date, BigDecimal open, BigDecimal high, BigDecimal low, BigDecimal close, int volume) {
-		super();
+		this.market_date = market_date;
+		this.open = open;
+		this.high = high;
+		this.low = low;
+		this.close = close;
+		this.volume = volume;
+	}
+
+	public Stock(Stock theStock) {
 		this.market_date = market_date;
 		this.open = open;
 		this.high = high;
