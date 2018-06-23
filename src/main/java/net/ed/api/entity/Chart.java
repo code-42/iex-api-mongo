@@ -1,5 +1,8 @@
 package net.ed.api.entity;
 
+import java.math.BigDecimal;
+import java.util.Date;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 //@JsonIgnoreProperties(ignoreUnknown=true)
@@ -7,24 +10,23 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Chart {
 	
 	private String date;
-	private String open;
-	private String high;
-	private String low;
-	private String close;
-	private String volume;
-	private String unadjustedVolume;
-	private String change;
-	private String changePercent;
-	private String vwap;
+	private BigDecimal open;
+	private BigDecimal high;
+	private BigDecimal low;
+	private BigDecimal close;
+	private BigDecimal volume;
+	private Double unadjustedVolume;
+	private BigDecimal change;
+	private Double changePercent;
+	private BigDecimal vwap;
 	private String label;
-	private String changeOverTime;
+	private Float changeOverTime;
 	
 	public Chart() {}
-	
-	public Chart(String date, String open, String high, String low, String close, String volume,
-			String unadjustedVolume, String change, String changePercent, String vwap, String label,
-			String changeOverTime) {
-		super();
+
+	public Chart(String date, BigDecimal open, BigDecimal high, BigDecimal low, BigDecimal close, BigDecimal volume,
+			Double unadjustedVolume, BigDecimal change, Double changePercent, BigDecimal vwap, String label,
+			Float changeOverTime) {
 		this.date = date;
 		this.open = open;
 		this.high = high;
@@ -47,75 +49,75 @@ public class Chart {
 		this.date = date;
 	}
 
-	public String getOpen() {
+	public BigDecimal getOpen() {
 		return open;
 	}
 
-	public void setOpen(String open) {
+	public void setOpen(BigDecimal open) {
 		this.open = open;
 	}
 
-	public String getHigh() {
+	public BigDecimal getHigh() {
 		return high;
 	}
 
-	public void setHigh(String high) {
+	public void setHigh(BigDecimal high) {
 		this.high = high;
 	}
 
-	public String getLow() {
+	public BigDecimal getLow() {
 		return low;
 	}
 
-	public void setLow(String low) {
+	public void setLow(BigDecimal low) {
 		this.low = low;
 	}
 
-	public String getClose() {
+	public BigDecimal getClose() {
 		return close;
 	}
 
-	public void setClose(String close) {
+	public void setClose(BigDecimal close) {
 		this.close = close;
 	}
 
-	public String getVolume() {
+	public BigDecimal getVolume() {
 		return volume;
 	}
 
-	public void setVolume(String volume) {
+	public void setVolume(BigDecimal volume) {
 		this.volume = volume;
 	}
 
-	public String getUnadjustedVolume() {
+	public Double getUnadjustedVolume() {
 		return unadjustedVolume;
 	}
 
-	public void setUnadjustedVolume(String unadjustedVolume) {
+	public void setUnadjustedVolume(Double unadjustedVolume) {
 		this.unadjustedVolume = unadjustedVolume;
 	}
 
-	public String getChange() {
+	public BigDecimal getChange() {
 		return change;
 	}
 
-	public void setChange(String change) {
+	public void setChange(BigDecimal change) {
 		this.change = change;
 	}
 
-	public String getChangePercent() {
+	public Double getChangePercent() {
 		return changePercent;
 	}
 
-	public void setChangePercent(String changePercent) {
+	public void setChangePercent(Double changePercent) {
 		this.changePercent = changePercent;
 	}
 
-	public String getVwap() {
+	public BigDecimal getVwap() {
 		return vwap;
 	}
 
-	public void setVwap(String vwap) {
+	public void setVwap(BigDecimal vwap) {
 		this.vwap = vwap;
 	}
 
@@ -127,38 +129,24 @@ public class Chart {
 		this.label = label;
 	}
 
-	public String getChangeOverTime() {
+	public Float getChangeOverTime() {
 		return changeOverTime;
 	}
 
-	public void setChangeOverTime(String changeOverTime) {
+	public void setChangeOverTime(Float changeOverTime) {
 		this.changeOverTime = changeOverTime;
 	}
 
 	@Override
 	public String toString() {
-		return "[date=" + date + ", open=" + open + ", high=" + high + ", low=" + low + ", close=" + close
+		return "Chart [date=" + date + ", open=" + open + ", high=" + high + ", low=" + low + ", close=" + close
 				+ ", volume=" + volume + ", unadjustedVolume=" + unadjustedVolume + ", change=" + change
 				+ ", changePercent=" + changePercent + ", vwap=" + vwap + ", label=" + label + ", changeOverTime="
 				+ changeOverTime + "]";
 	}
-	
-//	private Date date;
-//	private BigDecimal open;
-//	private BigDecimal high;
-//	private BigDecimal low;
-//	private BigDecimal close;
-//	private BigDecimal volume;
-//	private Double unadjustedVolume;
-//	private BigDecimal change;
-//	private Double changePercent;
-//	private BigDecimal vwap;
-//	private String label;
-//	private Float changeOverTime;
-
-
 
 	
+
 }
 
 

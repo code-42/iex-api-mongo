@@ -4,7 +4,9 @@ package net.ed.api.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,13 +18,14 @@ import net.ed.api.entity.JsonObject;
 public class JSONReader {
 	
 	public static void main(String[] args) {
-
+		
 		ObjectMapper mapper = new ObjectMapper();
 
 		try {
 			// Convert JSON string from file to Object
 			URL url = new URL("https://api.iextrading.com/1.0/stock/aapl/batch?types=chart&range=1m");
 			JsonObject jsonObject = mapper.readValue(url, JsonObject.class);
+						
 			printParsedObject(jsonObject);
 		} catch (IOException e) {
 			e.printStackTrace();
