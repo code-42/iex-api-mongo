@@ -26,8 +26,8 @@ public class JSONReader {
 		BigDecimal high = null;
 		BigDecimal low = null;
 		BigDecimal close = null;
-		BigDecimal volume = null;
-		Double unadjustedVolume = null;
+		int volume = (Integer) null;
+		int unadjustedVolume = (Integer) null;
 		BigDecimal change = null;
 		Double changePercent = null;
 		BigDecimal vwap = null;

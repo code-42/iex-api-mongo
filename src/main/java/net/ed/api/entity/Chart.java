@@ -3,19 +3,24 @@ package net.ed.api.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 //@JsonIgnoreProperties(ignoreUnknown=true)
 @JsonIgnoreProperties({ "chart" })
+@Entity
 public class Chart {
 	
+	@Id
 	private String date;
 	private BigDecimal open;
 	private BigDecimal high;
 	private BigDecimal low;
 	private BigDecimal close;
-	private BigDecimal volume;
-	private Double unadjustedVolume;
+	private int volume;
+	private int unadjustedVolume;
 	private BigDecimal change;
 	private Double changePercent;
 	private BigDecimal vwap;
@@ -24,8 +29,8 @@ public class Chart {
 	
 	public Chart() {}
 
-	public Chart(String date, BigDecimal open, BigDecimal high, BigDecimal low, BigDecimal close, BigDecimal volume,
-			Double unadjustedVolume, BigDecimal change, Double changePercent, BigDecimal vwap, String label,
+	public Chart(String date, BigDecimal open, BigDecimal high, BigDecimal low, BigDecimal close, int volume,
+			int unadjustedVolume, BigDecimal change, Double changePercent, BigDecimal vwap, String label,
 			Float changeOverTime) {
 		this.date = date;
 		this.open = open;
@@ -85,19 +90,19 @@ public class Chart {
 		this.close = close;
 	}
 
-	public BigDecimal getVolume() {
+	public int getVolume() {
 		return volume;
 	}
 
-	public void setVolume(BigDecimal volume) {
+	public void setVolume(int volume) {
 		this.volume = volume;
 	}
 
-	public Double getUnadjustedVolume() {
+	public int getUnadjustedVolume() {
 		return unadjustedVolume;
 	}
 
-	public void setUnadjustedVolume(Double unadjustedVolume) {
+	public void setUnadjustedVolume(int unadjustedVolume) {
 		this.unadjustedVolume = unadjustedVolume;
 	}
 
