@@ -10,7 +10,7 @@ import org.hibernate.cfg.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import net.ed.api.entity.Stock;
+import net.ed.api.entity.Chart;
 
 @Repository
 public class ApiDAOImpl implements IApiDAO{
@@ -19,27 +19,27 @@ public class ApiDAOImpl implements IApiDAO{
 	@Autowired
 	SessionFactory sessionFactory = new Configuration()
 			.configure("hibernate.cfg.xml")
-			.addAnnotatedClass(Stock.class)
+			.addAnnotatedClass(Chart.class)
 			.buildSessionFactory();
 	
 	// write data to the database
 	 @Override
 	 @Transactional
-	 public void saveStock(Stock theStock) {
+	 public void saveChart(Chart theChart) {
 		
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		try {
 			// create a student object
 			System.out.println("34. Creating new todays_totals object...");
-			Stock tempStock = new Stock(theStock);
+			Chart tempChart = new Chart(theChart);
 			
 			// start a transaction
 			currentSession.beginTransaction();
 			
 			// save the student object
-			System.out.println("41. Saving the Totals...");
-			currentSession.save(tempStock);
+			System.out.println("41. Saving the Chart...");
+			currentSession.save(tempChart);
 			
 			// commit transaction
 			currentSession.getTransaction().commit();

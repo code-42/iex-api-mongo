@@ -41,6 +41,10 @@ public class Chart {
 		this.changeOverTime = changeOverTime;
 	}
 
+	public Chart(Chart theChart) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getDate() {
 		return date;
 	}

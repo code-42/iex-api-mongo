@@ -16,7 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import net.ed.api.entity.Chart;
 import net.ed.api.entity.JsonObject;
 
-//@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class JSONReader {
 	
 	public static void main(String[] args) {
