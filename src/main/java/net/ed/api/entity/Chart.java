@@ -8,8 +8,8 @@ import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-//@JsonIgnoreProperties(ignoreUnknown=true)
-@JsonIgnoreProperties({ "chart" })
+@JsonIgnoreProperties(ignoreUnknown=true)
+//@JsonIgnoreProperties({ "chart" })
 @Entity
 public class Chart {
 	
@@ -48,6 +48,18 @@ public class Chart {
 
 	public Chart(Chart theChart) {
 		// TODO Auto-generated constructor stub
+		this.date = theChart.getDate();
+		this.open = theChart.getOpen();
+		this.high = theChart.getHigh();
+		this.low = theChart.getLow();
+		this.close = theChart.getClose();
+		this.volume = theChart.getVolume();
+		this.unadjustedVolume = theChart.getUnadjustedVolume();
+		this.change = theChart.getChange();
+		this.changePercent = theChart.getChangePercent();
+		this.vwap = theChart.getVwap();
+		this.label = theChart.getLabel();
+		this.changeOverTime = theChart.getChangeOverTime();
 	}
 
 	public String getDate() {
