@@ -18,6 +18,9 @@ public class Chart implements Serializable {
 	@Column(name="id")
     private int id;
 
+	@Column(name="symbol")
+	private String symbol;
+	
 	@Column(name="market_date")
 	private String date;
 	
@@ -55,6 +58,16 @@ public class Chart implements Serializable {
 	private Double changeOverTime;
 	
 	public Chart() {}
+
+	@JsonProperty("symbol")
+	public String getSymbol() {
+		return symbol;
+	}
+	
+	@JsonProperty("symbol")
+	public void setSymbol(String symbol) {
+		this.symbol = symbol;
+	}
 
 	@JsonProperty("date")
 	public String getDate() {
@@ -178,11 +191,12 @@ public class Chart implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Chart [date=" + date + ", open=" + open + ", high=" + high + ", low=" + low + ", close="
-				+ close + ", volume=" + volume + ", unadjustedVolume=" + unadjustedVolume + ", change=" + change
-				+ ", changePercent=" + changePercent + ", vwap=" + vwap + ", label=" + label + ", changeOverTime="
-				+ changeOverTime + "]";
+		return "Chart [symbol=" + symbol + ", date=" + date + ", open=" + open + ", high=" + high
+				+ ", low=" + low + ", close=" + close + ", volume=" + volume + ", unadjustedVolume=" + unadjustedVolume
+				+ ", change=" + change + ", changePercent=" + changePercent + ", vwap=" + vwap + ", label=" + label
+				+ ", changeOverTime=" + changeOverTime + "]";
 	}
+
 }
 
 
