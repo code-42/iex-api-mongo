@@ -37,6 +37,7 @@ public class ApiController {
 			
 			for(Chart chart : charts) {
 				System.out.println(chart.toString());
+				apiRepository.save(chart);
 			}
 		};
 	}
