@@ -42,7 +42,7 @@ public class ApiController {
 						chart.setSymbol(symbol);
 						System.out.println(chart.toString());
 						
-//						apiRepository.save(chart);
+						apiRepository.save(chart);
 					}
 				}
 			};
