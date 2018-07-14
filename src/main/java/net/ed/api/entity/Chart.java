@@ -178,7 +178,7 @@ public class Chart implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Chart [id=" + id + ", date=" + date + ", open=" + open + ", high=" + high + ", low=" + low + ", close="
+		return "Chart [date=" + date + ", open=" + open + ", high=" + high + ", low=" + low + ", close="
 				+ close + ", volume=" + volume + ", unadjustedVolume=" + unadjustedVolume + ", change=" + change
 				+ ", changePercent=" + changePercent + ", vwap=" + vwap + ", label=" + label + ", changeOverTime="
 				+ changeOverTime + "]";
