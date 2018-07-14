@@ -33,16 +33,16 @@ public class ApiController {
 	public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
 			
 			return args -> {
-//				for(String symbol : symbols) {
+				for(String symbol : symbols) {
 					Chart[] charts = restTemplate.getForObject(
-							"https://api.iextrading.com/1.0/stock/mu/chart", Chart[].class);
-					System.out.println(charts.getClass().getFields());
+							"https://api.iextrading.com/1.0/stock/" + symbol + "/chart", Chart[].class);
+					System.out.println(symbol);
 					
 					for(Chart chart : charts) {
 						System.out.println(chart.toString());
 						apiRepository.save(chart);
 					}
-//				}
+				}
 			};
 	}
 }
