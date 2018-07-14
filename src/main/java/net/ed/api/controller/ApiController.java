@@ -22,6 +22,8 @@ public class ApiController {
 	@Autowired
 	ApiRepository apiRepository;
 	
+	String[] symbols = {"MSFT","INTC","AMZN","AMD","NFLX","MU","BABA","FB","BAC","AAPL"};
+	
 	@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {
 		return builder.build();
@@ -29,16 +31,18 @@ public class ApiController {
 
 	@Bean
 	public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
-		
-		return args -> {
-			Chart[] charts = restTemplate.getForObject(
-					"https://api.iextrading.com/1.0/stock/mu/chart", Chart[].class);
-			System.out.println(charts.getClass().getFields());
 			
-			for(Chart chart : charts) {
-				System.out.println(chart.toString());
-				apiRepository.save(chart);
-			}
-		};
+			return args -> {
+//				for(String symbol : symbols) {
+					Chart[] charts = restTemplate.getForObject(
+							"https://api.iextrading.com/1.0/stock/mu/chart", Chart[].class);
+					System.out.println(charts.getClass().getFields());
+					
+					for(Chart chart : charts) {
+						System.out.println(chart.toString());
+						apiRepository.save(chart);
+					}
+//				}
+			};
 	}
 }

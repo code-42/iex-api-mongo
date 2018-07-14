@@ -19,7 +19,7 @@ public class Chart implements Serializable {
     private int id;
 
 	@Column(name="market_date")
-	private Date date;
+	private String date;
 	
 	@Column(name="open_price")
 	private Double open;
@@ -57,12 +57,12 @@ public class Chart implements Serializable {
 	public Chart() {}
 
 	@JsonProperty("date")
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
 	@JsonProperty("date")
-	public void setDate(Date market_date) {
+	public void setDate(String market_date) {
 		this.date = market_date;
 	}
 
