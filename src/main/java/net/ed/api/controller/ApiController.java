@@ -19,6 +19,9 @@ import net.ed.api.entity.Chart;
 @RestController
 public class ApiController {
 	
+	@Autowired
+	ApiRepository apiRepository;
+	
 	@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {
 		return builder.build();
