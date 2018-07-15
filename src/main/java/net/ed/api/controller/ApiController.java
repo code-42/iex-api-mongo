@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import net.ed.api.entity.Chart;
+//import net.ed.api.entity.Chart;
+import net.ed.api.entity.Stocks;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestController
@@ -32,19 +33,35 @@ public class ApiController {
 	@Bean
 	public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
 			
-			return args -> {
-				for(String symbol : symbols) {
-					Chart[] charts = restTemplate.getForObject(
-							"https://api.iextrading.com/1.0/stock/" + symbol + "/chart", Chart[].class);
-					System.out.println(symbol);
+//			return args -> {
+//				for(String symbol : symbols) {
+//					Chart[] charts = restTemplate.getForObject(
+//							"https://api.iextrading.com/1.0/stock/" + symbol + "/chart", Chart[].class);
+//					System.out.println(symbol);
+//					
+//					for(Chart chart : charts) {
+////						chart.setSymbol(symbol);
+//						System.out.println(chart.toString());
+//						
+////						apiRepository.save(chart);
+//					}
+//				}
+//			};
+		
+		return args -> {
+			for(String symbol : symbols) {
+				Stocks[] stocks = restTemplate.getForObject(
+						"https://api.iextrading.com/1.0/stock/" + symbol + "/chart", Stocks[].class);
+				System.out.println(symbol);
+				
+				for(Stocks stock : stocks) {
+//					chart.setSymbol(symbol);
+					System.out.println(stock.toString());
 					
-					for(Chart chart : charts) {
-						chart.setSymbol(symbol);
-						System.out.println(chart.toString());
-						
-						apiRepository.save(chart);
-					}
+//					apiRepository.save(chart);
 				}
-			};
+			}
+		};
 	}
 }
+

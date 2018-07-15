@@ -6,8 +6,9 @@ package net.ed.api.controller;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import net.ed.api.entity.Chart;
+import net.ed.api.entity.Stocks;
 
 @Repository
-public interface ApiRepository extends JpaRepository<Chart, Long> {
+public interface ApiRepository extends JpaRepository<Stocks, Long> {
 	
 }
