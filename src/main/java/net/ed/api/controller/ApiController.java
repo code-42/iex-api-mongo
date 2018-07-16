@@ -55,10 +55,10 @@ public class ApiController {
 				System.out.println(symbol);
 				
 				for(Stocks stock : stocks) {
-//					chart.setSymbol(symbol);
+					stock.setSymbol(symbol);
 					System.out.println(stock.toString());
 					
-//					apiRepository.save(chart);
+					apiRepository.save(stock);
 				}
 			}
 		};

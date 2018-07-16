@@ -1,5 +1,6 @@
 package net.ed.api.entity;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -7,17 +8,21 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown=true)
+@EntityListeners(AuditingEntityListener.class)
 @Entity
 @Table(name="stocks")
-public class Stocks {
+public class Stocks implements Serializable {
 	
 	// auto-increment primary key
 	@Id
@@ -25,12 +30,12 @@ public class Stocks {
 	@Column(name="id")
 	private int id;
 	
-	// database fields
-	@Column(name="market_date")
-	private Date marketDate;
-	
 	@Column(name="symbol")
 	private String symbol;
+	
+	// database fields
+	@Column(name="market_date")
+	private String date;
 	
 	@Column(name="open")
 	private Double open;
@@ -50,62 +55,20 @@ public class Stocks {
 	@Column(name="volume")
 	private int volume;
 	
-//	private List<Equities> todays_equities;
-	
 	// no-arg constructor
-	public Stocks() {
-//		System.out.println("47. inside Equities() no-arg constructor");
-	}
+	public Stocks() {}
 	
-	// equitiess constructor
-	public Stocks(Stocks equities) {
-		System.out.println("42. inside Totals(List<String> todays_totals) constructor");
-		this.marketDate = equities.getMarketDate();
-		this.symbol = equities.getSymbol();
-		this.open = equities.getOpen();
-		this.high = equities.getHigh();
-		this.low = equities.getLow();
-		this.close = equities.getClose();
-		this.adjClose = equities.getAdjClose();
-		this.volume = equities.getVolume();		// System.out.println("57. New Totals: " + todaysDate + " " + currentMarketValue + " " + dayGain + " " + totalGain);
-	}
-	
-	// todays_totals constructor
-	public Stocks(List<String> todays_equities) throws ParseException {
-		System.out.println("42. inside Equities(List<String> todays_equities) constructor");
-		this.marketDate = new SimpleDateFormat("yyyy-MM-dd").parse(todays_equities.get(0));
-		this.symbol = todays_equities.get(1);
-		this.open = Double.parseDouble(todays_equities.get(2));
-		this.high = Double.parseDouble(todays_equities.get(3));
-		this.low = Double.parseDouble(todays_equities.get(4));
-		this.close = Double.parseDouble(todays_equities.get(5));
-		this.adjClose = Double.parseDouble(todays_equities.get(6));
-		this.volume = Integer.parseInt(todays_equities.get(7));
-		// System.out.println(todaysDate + " " + currentMarketValue + " " + dayGain + " " + totalGain);
-	}
-
-	public Stocks(int id, Date marketDate, String symbol, Double open, Double high, Double low, Double close, Double adjClose, int volume) {
-		this.id = id;
-		this.marketDate = marketDate;
-		this.symbol = symbol;
-		this.open = open;
-		this.high = high;
-		this.low = low;
-		this.close = close;
-		this.adjClose = adjClose;
-		this.volume = volume;
-	}
-
+	// getters and setters
 	public int getId() {
 		return id;
 	}
 
-	public Date getMarketDate() {
-		return marketDate;
+	public String getDate() {
+		return date;
 	}
 
-	public void setMarketDate(Date marketDate) {
-		this.marketDate = marketDate;
+	public void setDate(String market_date) {
+		this.date = market_date;
 	}
 
 	public String getSymbol() {
@@ -166,7 +129,7 @@ public class Stocks {
 
 	@Override
 	public String toString() {
-		return "Equities [id=" + id + ", marketDate=" + marketDate + ", symbol=" + symbol + ", open=" + open + ", high="
+		return "Stocks [symbol=" + symbol + ", date=" + date + ",  open=" + open + ", high="
 				+ high + ", low=" + low + ", close=" + close + ", adjClose=" + adjClose + ", volume=" + volume + "]";
 	}
 	
