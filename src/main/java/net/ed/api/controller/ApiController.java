@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -33,21 +34,6 @@ public class ApiController {
 	@Bean
 	public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
 			
-//			return args -> {
-//				for(String symbol : symbols) {
-//					Chart[] charts = restTemplate.getForObject(
-//							"https://api.iextrading.com/1.0/stock/" + symbol + "/chart", Chart[].class);
-//					System.out.println(symbol);
-//					
-//					for(Chart chart : charts) {
-////						chart.setSymbol(symbol);
-//						System.out.println(chart.toString());
-//						
-////						apiRepository.save(chart);
-//					}
-//				}
-//			};
-		
 		return args -> {
 			for(String symbol : symbols) {
 				Stocks[] stocks = restTemplate.getForObject(
