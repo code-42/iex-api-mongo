@@ -38,13 +38,15 @@ public class ApiController {
 			for(String symbol : symbols) {
 				Stocks[] stocks = restTemplate.getForObject(
 						"https://api.iextrading.com/1.0/stock/" + symbol + "/chart", Stocks[].class);
-				System.out.println(symbol);
+//				System.out.println(symbol);
 				
 				for(Stocks stock : stocks) {
 					stock.setSymbol(symbol);
-					System.out.println(stock.toString());
 					
-					apiRepository.save(stock);
+					if(stock.getDate().equals("2018-07-17")) {
+						System.out.println(stock.toString());
+//						apiRepository.save(stock);
+					}
 				}
 			}
 		};
