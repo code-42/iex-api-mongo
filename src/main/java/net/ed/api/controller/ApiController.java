@@ -3,6 +3,9 @@ package net.ed.api.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 // source https://spring.io/guides/gs/consuming-rest/
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +25,7 @@ import net.ed.api.entity.Stocks;
 public class ApiController {
 	
 	@Autowired
+	static
 	ApiRepository apiRepository;
 	
 	String[] symbols = {"MSFT","INTC","AMZN","AMD","NFLX","MU","BABA","FB","BAC","AAPL"};
@@ -35,6 +39,7 @@ public class ApiController {
 	public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
 			
 		return args -> {
+			System.out.println(findAll());
 			for(String symbol : symbols) {
 				Stocks[] stocks = restTemplate.getForObject(
 						"https://api.iextrading.com/1.0/stock/" + symbol + "/chart", Stocks[].class);
@@ -43,7 +48,7 @@ public class ApiController {
 				for(Stocks stock : stocks) {
 					stock.setSymbol(symbol);
 					
-					if(stock.getDate().equals("2018-07-17")) {
+					if(stock.getDate().equals("2018-07-19")) {
 						System.out.println(stock.toString());
 //						apiRepository.save(stock);
 					}
@@ -51,5 +56,13 @@ public class ApiController {
 			}
 		};
 	}
+	
+	@PersistenceContext
+	private EntityManager em;
+	
+	public List<Stocks> findAll(){
+		return em.createQuery("select s from Stocks s", Stocks.class).getResultList();
+	}
+	
 }
 
