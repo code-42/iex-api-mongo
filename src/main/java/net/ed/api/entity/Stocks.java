@@ -49,8 +49,8 @@ public class Stocks implements Serializable {
 	@Column(name="close")
 	private Double close;
 	
-	@Column(name="adj_close")
-	private Double adjClose;
+//	@Column(name="adj_close")
+//	private Double adjClose;
 	
 	@Column(name="volume")
 	private int volume;
@@ -111,13 +111,13 @@ public class Stocks implements Serializable {
 		this.close = close;
 	}
 
-	public Double getAdjClose() {
-		return adjClose;
-	}
-
-	public void setAdjClose(Double adjClose) {
-		this.adjClose = adjClose;
-	}
+//	public Double getAdjClose() {
+//		return adjClose;
+//	}
+//
+//	public void setAdjClose(Double adjClose) {
+//		this.adjClose = adjClose;
+//	}
 
 	public int getVolume() {
 		return volume;
@@ -129,8 +129,8 @@ public class Stocks implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Stocks [symbol=" + symbol + ", date=" + date + ",  open=" + open + ", high="
-				+ high + ", low=" + low + ", close=" + close + ", adjClose=" + adjClose + ", volume=" + volume + "]";
+		return "Stocks [id=" + id + ", symbol=" + symbol + ", date=" + date + ", open=" + open + ", high=" + high
+				+ ", low=" + low + ", close=" + close + ", volume=" + volume + "]";
 	}
 	
 }
