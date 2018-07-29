@@ -43,9 +43,9 @@ public class ApiController {
 				for(Stocks stock : stocks) {
 					stock.setSymbol(symbol);
 					
-					if(stock.getDate().equals("2018-07-17")) {
+					if(stock.getDate().equals("2018-07-27")) {
 						System.out.println(stock.toString());
-//						apiRepository.save(stock);
+						apiRepository.save(stock);
 					}
 				}
 			}
