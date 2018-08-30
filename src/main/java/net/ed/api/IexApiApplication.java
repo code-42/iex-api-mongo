@@ -16,7 +16,7 @@ public class IexApiApplication {
 		runApp();
 	}
 
-	@Scheduled(cron = "* 19 9 * * ?")
+//	@Scheduled(cron = "* * * * * ?")
 //	@Scheduled(fixedDelay=10000)
 	public static void runApp() {
 		SpringApplication.run(IexApiApplication.class);
