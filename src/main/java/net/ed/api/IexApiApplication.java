@@ -55,7 +55,8 @@ public class IexApiApplication implements CommandLineRunner {
 				for(Stocks stock : stocks) {
 					stock.setSymbol(symbol);
 					
-					if(stock.getDate().equals("2018-12-27")) {
+//					if(stock.getDate().equals("2018-12-27")) {
+					if(stock.getDate().equals(yesterday.format(dateFmt))) {
 						System.out.println(stock.toString());
 //						apiRepository.save(stock);
 					}
