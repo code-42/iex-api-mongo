@@ -3,7 +3,7 @@ Implementation-Title: iex-api
 Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: melocal
 Implementation-Vendor-Id: net.ed
-Build-Jdk: 1.8.0_152
+Build-Jdk: 1.8.0_192
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/iex-api
 Created-By: Maven Integration for Eclipse
