@@ -36,8 +36,8 @@ public class RestClient implements CommandLineRunner {
 		
 		try {
 			for(String symbol : symbols) {
-				
-//				System.out.println("inside try block...");
+//				String symbol = "AAPL";
+				System.out.println("inside try block...");
 				URL url = new URL("https://api.iextrading.com/1.0/stock/" + symbol + "/chart");
 				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 				conn.setRequestMethod("GET");
@@ -71,6 +71,10 @@ public class RestClient implements CommandLineRunner {
 		
 		  } catch (IOException e) {
 		
+			e.printStackTrace();
+		
+		  } catch (Exception e) {
+				
 			e.printStackTrace();
 		
 		  }
