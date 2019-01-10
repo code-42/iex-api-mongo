@@ -1,35 +1,30 @@
 package net.ed.api;
 
-// https://www.mkyong.com/webservices/jax-rs/restfull-java-client-with-java-net-url/
-
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
-import java.util.List;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import net.ed.api.JsonDecoder;
-import org.json.JSONArray;
 
 @Component
 public class ApiController implements CommandLineRunner {
+	
+	// empty constructor
+	public ApiController() {}
 	
 	public void run(String... args) throws Exception {
 		
 		LocalDate yesterday = LocalDate.now().minusDays(1);
 		DateTimeFormatter dateFmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-//		System.out.println("28. yesterday == " + yesterday.format(dateFmt));
+		System.out.println("28. yesterday == " + yesterday.format(dateFmt));
 		
 		String[] symbols = {"AAPL","INTC","AMZN","AMD","NFLX","MU","BABA","FB","BAC","MSFT"};
-
 		
 		try {
 			for(String symbol : symbols) {
