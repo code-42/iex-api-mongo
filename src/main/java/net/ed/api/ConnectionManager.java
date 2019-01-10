@@ -1,5 +1,9 @@
 package net.ed.api;
 
+/*
+ * Copyright 2019 Edward Dupre 
+ */
+
 import org.springframework.stereotype.Component;
 import com.mongodb.async.client.MongoClient;
 import com.mongodb.async.client.MongoClients;
@@ -9,9 +13,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 
 @Component
-public class ConnectionManager {
+public class ConnectionManager implements IConnect {
 
-	// 
+	// injecting values into fields
 	@Value("${spring.data.mongodb.uri}")
 	private String mongoUri;
 	
@@ -21,7 +25,8 @@ public class ConnectionManager {
 	public ConnectionManager() {}
 
 	@Bean
-	public MongoDatabase connectMe() throws ClassNotFoundException {
+	//  method defined in interface IConnect
+	public MongoDatabase connect() {
 		
 		// client connects to mLab
 		MongoClient mongoClient = MongoClients.create(mongoUri);
@@ -29,6 +34,7 @@ public class ConnectionManager {
 		// get default database
 		MongoDatabase database = mongoClient.getDatabase(defaultDb);
 
+		// verify database connection
 		if(database != null) {
 			System.out.println(database.getName() + " Connected!!");
 		} else {

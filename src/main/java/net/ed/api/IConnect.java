@@ -1,9 +1,14 @@
 package net.ed.api;
 
+/*
+ * Copyright 2019 Edward Dupre 
+ */
+
 import com.mongodb.async.client.MongoDatabase;
 
 public interface IConnect {
 	
-	public MongoDatabase connectMe();
+	// implemented in ConnectionManager
+	public MongoDatabase connect();
 
 }
