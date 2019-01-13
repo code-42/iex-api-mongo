@@ -31,3 +31,5 @@ resources
 
 *.sql
 
+application.properties
+

@@ -13,5 +13,5 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:application.properties")
 public class AppConfig {}
 
-// @PropertySource allows hiding passwords, connection strings and other information
-// we dont want exposed to hackers
+// @PropertySource allows hiding passwords, connection strings and 
+// other information we dont want exposed 
