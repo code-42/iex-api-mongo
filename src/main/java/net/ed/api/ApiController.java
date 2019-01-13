@@ -8,6 +8,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import java.io.BufferedReader;
@@ -32,6 +35,8 @@ public class ApiController implements CommandLineRunner {
 		
 		// array of stock symbols to get data from iex
 		String[] symbols = {"AAPL","INTC","AMZN","AMD","NFLX","MU","BABA","FB","BAC","MSFT"};
+		String stockInfo = "";
+		List<String> aList=new ArrayList<String>();
 		
 		try {
 			// loop through symbols array
@@ -55,7 +60,9 @@ public class ApiController implements CommandLineRunner {
 				String output; // looks like array of Json objects but is String
 				while ((output = br.readLine()) != null) {
 					// send input stream for processing
-					JsonDecoder.jsonDecoder(symbol, output);
+					stockInfo = JsonDecoder.jsonDecoder(symbol, output);
+//					System.out.println(stockInfo);
+					aList.add(stockInfo);
 				}
 				// be nice and disconnect when done
 				conn.disconnect();
@@ -75,6 +82,12 @@ public class ApiController implements CommandLineRunner {
 			e.printStackTrace();
 		
 		  }
+		
+		System.out.println("here comes al...");
+		for(String s:aList){  
+			 System.out.println(s);  
+		} 
+		
 		// bye
 		System.exit(0);
 	}
